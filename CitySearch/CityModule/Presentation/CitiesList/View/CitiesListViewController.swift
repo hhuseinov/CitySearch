@@ -48,7 +48,7 @@ extension CitiesListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let city = viewModel.displayCities[indexPath.row]
+        let city = viewModel.displayCities[indexPath.row + viewModel.displayCities.startIndex]
         cell.textLabel?.text = "\(city.name), \(city.country)"
         cell.detailTextLabel?.text = "Lat: \(city.coordinates.latitude), Long: \(city.coordinates.longitude)"
         return cell
@@ -60,6 +60,8 @@ extension CitiesListViewController: UITableViewDataSource {
 extension CitiesListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -74,7 +76,11 @@ private extension CitiesListViewController {
 
 extension CitiesListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            viewModel.didSearch(query: searchText)
+         } else {
+            viewModel.didCancelSearch()
+         }
     }
 }
 

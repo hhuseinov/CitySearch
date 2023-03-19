@@ -16,15 +16,17 @@ enum CitiesListBuilder {
 
     // MARK: Public Methods
 
-    static func build() -> CitiesListBuild {
-        let viewModel = CitiesListViewModel(citySearchUseCase: makeCitySearchUseCase())
+    static func build(searchEngine: CitiesSearchEngine) -> CitiesListBuild {
+        let viewModel = CitiesListViewModel(
+            citySearchUseCase: makeCitySearchUseCase(searchEngine: searchEngine)
+        )
         let viewController = CitiesListViewController.create(with: viewModel)
         return (viewController, viewModel)
     }
 
     // MARK: Private Methods
-    private static func makeCitySearchUseCase() -> CitySearchUseCase {
-        DefaultCitySearchUseCase(cityRepository: makeCityRepository())
+    private static func makeCitySearchUseCase(searchEngine: CitiesSearchEngine) -> CitySearchUseCase {
+        DefaultCitySearchUseCase(cityRepository: makeCityRepository(), searchEngine: searchEngine)
     }
     
     private static func makeCityRepository() -> CityRepository {

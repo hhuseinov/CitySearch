@@ -51,16 +51,17 @@ extension CitiesListViewModel: CitiesListViewModelPresentation {
     }
     
     func didSearch(query: String) {
-        displayCities = citySearchUseCase.searchForCities(query: query, initialCollection: allCities)
+        displayCities = citySearchUseCase.searchForCities(query: query, initialCollection: allCities) ?? []
+        presentationDelegate?.citiesUpdated()
     }
     
     func didCancelSearch() {
-        
+        displayCities = ArraySlice(allCities)
+        presentationDelegate?.citiesUpdated()
     }
     
     func didSelectItem(at index: Int) {
-        
+        let city = displayCities[index + displayCities.startIndex]
+        coordinationDelegate?.showCityDetails(city)
     }
-    
-
 }

@@ -7,16 +7,28 @@
 
 import UIKit
 
+protocol BaseCoordinator: AnyObject {}
+
 final class AppCoordinator {
 
-    var navigationController: UINavigationController
+    private let appDIContainer: AppDIContainer
+    private var navigationController: UINavigationController
+    private var coordinators: [any BaseCoordinator] = .init()
     
-    init(navigationController: UINavigationController) {
+    init(
+        navigationController: UINavigationController,
+        appDIContainer: AppDIContainer
+    ) {
         self.navigationController = navigationController
+        self.appDIContainer = appDIContainer
     }
 
     func start() {
-        let flow = CityCoordinator(navigationController: navigationController)
-        flow.start()
+        let coordinator = CityCoordinator(
+            navigationController: navigationController,
+            searchEngine: appDIContainer.searchEngine
+        )
+        coordinators.append(coordinator)
+        coordinator.start()
     }
 }

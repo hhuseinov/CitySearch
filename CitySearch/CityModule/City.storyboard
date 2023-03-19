@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,9 +51,24 @@
                     <view key="view" contentMode="scaleToFill" id="gMD-wH-rp1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v41-Hb-7SP">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BtB-Td-m0r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BtB-Td-m0r" firstAttribute="bottom" secondItem="v41-Hb-7SP" secondAttribute="bottom" id="97o-CI-VUQ"/>
+                            <constraint firstItem="BtB-Td-m0r" firstAttribute="trailing" secondItem="v41-Hb-7SP" secondAttribute="trailing" id="Qhh-Yw-eUZ"/>
+                            <constraint firstItem="v41-Hb-7SP" firstAttribute="top" secondItem="BtB-Td-m0r" secondAttribute="top" id="ax5-NK-I9j"/>
+                            <constraint firstItem="v41-Hb-7SP" firstAttribute="leading" secondItem="BtB-Td-m0r" secondAttribute="leading" id="xa3-ad-dvX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="v41-Hb-7SP" id="DFh-cC-Jsc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuY-Ra-dCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

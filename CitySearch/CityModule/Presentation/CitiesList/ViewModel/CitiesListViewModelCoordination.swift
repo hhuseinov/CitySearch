@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CitiesListViewModelCoordinationDelegate: AnyObject {
-    func showCityDetails(_ city: AnyObject)
+    func showCityDetails(_ city: City)
 }
 
 protocol CitiesListViewModelCoordination: AnyObject {
