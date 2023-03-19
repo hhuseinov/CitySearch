@@ -126,9 +126,9 @@
             filePath = "CitySearch/Utils/SearchEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "binarySearch(array:shouldSortBeforeSearch:predicate:isBiggerThan:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "binarySearch(array:predicate:isBiggerThan:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,9 +142,9 @@
             filePath = "CitySearch/Utils/SearchEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "binarySearch(array:shouldSortBeforeSearch:predicate:isBiggerThan:)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "binarySearch(array:predicate:isBiggerThan:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,9 +158,9 @@
             filePath = "CitySearch/Utils/SearchEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "binarySearch(array:shouldSortBeforeSearch:predicate:isBiggerThan:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "binarySearch(array:predicate:isBiggerThan:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -174,9 +174,9 @@
             filePath = "CitySearch/Utils/SearchEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "binarySearch(array:shouldSortBeforeSearch:predicate:isBiggerThan:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "binarySearch(array:predicate:isBiggerThan:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -241,6 +241,38 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "didSearch(query:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BEA915F3-CCDD-4C9B-8C70-4D7CC18B142C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitySearchTests/SearchEngineTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "DefaultSearchEngineTests"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32C2E677-AD24-4E9E-A642-755F40C38379"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitySearchTests/SearchEngineTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "testSearchForCitiesFirstLetter()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

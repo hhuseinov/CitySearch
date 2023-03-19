@@ -15,7 +15,6 @@ private protocol SearchMethods {
      */
     func binarySearch<T: Comparable>(
         array: [T],
-        shouldSortBeforeSearch: Bool,
         predicate: (T) -> Bool,
         isBiggerThan: (T) -> Bool
     ) -> ArraySlice<T>?
@@ -24,7 +23,6 @@ private protocol SearchMethods {
 final class DefaultSearchEngine: SearchMethods {
     func binarySearch<T>(
         array: [T],
-        shouldSortBeforeSearch: Bool,
         predicate: (T) -> Bool,
         isBiggerThan: (T) -> Bool
     ) -> ArraySlice<T>? where T : Comparable {
@@ -59,7 +57,6 @@ extension DefaultSearchEngine: CitiesSearchEngine {
     func searchForCities(query: String, initialCollection: [City]) -> ArraySlice<City>? {
         binarySearch(
             array: initialCollection,
-            shouldSortBeforeSearch: false,
             predicate: {
                 $0.name.lowercased().hasPrefix(query.lowercased())
                 

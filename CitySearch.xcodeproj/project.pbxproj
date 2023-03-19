@@ -11,7 +11,6 @@
 		F560A6E329C4F49A00FAB656 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560A6E229C4F49A00FAB656 /* SceneDelegate.swift */; };
 		F560A6EA29C4F49C00FAB656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F560A6E929C4F49C00FAB656 /* Assets.xcassets */; };
 		F560A6ED29C4F49C00FAB656 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F560A6EB29C4F49C00FAB656 /* LaunchScreen.storyboard */; };
-		F560A6F829C4F49C00FAB656 /* CitySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560A6F729C4F49C00FAB656 /* CitySearchTests.swift */; };
 		F560A70229C4F49C00FAB656 /* CitySearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560A70129C4F49C00FAB656 /* CitySearchUITests.swift */; };
 		F560A70429C4F49C00FAB656 /* CitySearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560A70329C4F49C00FAB656 /* CitySearchUITestsLaunchTests.swift */; };
 		F560A72E29C5B1D400FAB656 /* CitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560A72D29C5B1D400FAB656 /* CitiesListViewModel.swift */; };
@@ -36,6 +35,7 @@
 		F560A77329C73FC500FAB656 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560A77229C73FC500FAB656 /* SearchEngine.swift */; };
 		F580465229C75B1C006E3346 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465129C75B1C006E3346 /* DIContainer.swift */; };
 		F580465429C76159006E3346 /* CityDetailsViewModelPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465329C76159006E3346 /* CityDetailsViewModelPresentation.swift */; };
+		F580465729C775A3006E3346 /* SearchEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465629C775A3006E3346 /* SearchEngineTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		F560A6EC29C4F49C00FAB656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F560A6EE29C4F49C00FAB656 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F560A6F329C4F49C00FAB656 /* CitySearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitySearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F560A6F729C4F49C00FAB656 /* CitySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchTests.swift; sourceTree = "<group>"; };
 		F560A6FD29C4F49C00FAB656 /* CitySearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitySearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F560A70129C4F49C00FAB656 /* CitySearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchUITests.swift; sourceTree = "<group>"; };
 		F560A70329C4F49C00FAB656 /* CitySearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		F560A77229C73FC500FAB656 /* SearchEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
 		F580465129C75B1C006E3346 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		F580465329C76159006E3346 /* CityDetailsViewModelPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsViewModelPresentation.swift; sourceTree = "<group>"; };
+		F580465629C775A3006E3346 /* SearchEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,7 @@
 		F560A6F629C4F49C00FAB656 /* CitySearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				F560A6F729C4F49C00FAB656 /* CitySearchTests.swift */,
+				F580465629C775A3006E3346 /* SearchEngineTests.swift */,
 			);
 			path = CitySearchTests;
 			sourceTree = "<group>";
@@ -472,7 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F560A6F829C4F49C00FAB656 /* CitySearchTests.swift in Sources */,
+				F580465729C775A3006E3346 /* SearchEngineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
