@@ -1,9 +1,12 @@
-As an architecture, i applied MVVM and coordinators, plus clean architecture.
-Clean architecture was done to totally separate layers one from another(eg. Presentation, Domain, Data).
-MVVM architecture was applied, because it is simple, testable, easy to use and understand architecture. Plus, for my opinion, it is one of the most common architectures in ios development, so it will be easier to onboard newcomers.
+As an architecture, I applied the MVVM with coordinator pattern, along with the Clean Architecture approach. 
+With Clean Architecture, I completely separated the layers (such as Presentation, Domain, and Data) from each other. 
+The MVVM pattern was chosen for its simplicity, testability, ease of use, and widespread adoption in iOS development. This makes it easier for newcomers to onboard.
 
-Also simple DI container applied to improve testability and prepare for modularisation. 
+To improve testability and prepare for modularization, a simple DI container was also implemented.
 
-For search algorithm, there was applied a binary search, as it is one of the most efficient search algorithms. Plus anyway we had to make sort for initial list of items. 
+For the search algorithm, a binary search was used, as it is one of the most efficient search algorithms. In addition, a sort was performed on the initial list of items.
 
-Async/await was applied to data parser mechanism, because i decided to move this logic out of main thread. Idea to speed up parser algorithm, is to split json file to multiple chunks and run parsing and sorting in parallel. Then merge all results in one collection. 
+Async/await was used for the data parser mechanism to move the logic out of the main thread. 
+
+(TODO) To further speed up the parser algorithm, I plan to split the JSON file into multiple chunks and run parsing and sorting in parallel. 
+Then, I will merge all the results into a single collection.
