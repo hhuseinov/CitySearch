@@ -20,11 +20,8 @@ final class CitiesListViewModel: CitiesListViewModelCoordination {
         self.citySearchUseCase = citySearchUseCase
     }
 
-    // MARK: Private methods
-
-
     // MARK: Private properties
-    var allCities: [City] = []
+    private var allCities: [City] = []
 
     // MARK: Public properties
     var displayCities: ArraySlice<City> = []
@@ -51,6 +48,7 @@ extension CitiesListViewModel: CitiesListViewModelPresentation {
     }
     
     func didSearch(query: String) {
+        guard !allCities.isEmpty else { return }
         displayCities = citySearchUseCase.searchForCities(query: query, initialCollection: allCities) ?? []
         presentationDelegate?.citiesUpdated()
     }

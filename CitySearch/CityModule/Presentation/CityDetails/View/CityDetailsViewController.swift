@@ -23,18 +23,22 @@ final class CityDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = viewModel.city.name
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupPointForLocation()
     }
-    
+
     func setupPointForLocation() {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = viewModel.coordinates
+        annotation.coordinate = viewModel.city.coordinates
         mapView.addAnnotation(annotation)
         let region = MKCoordinateRegion(
-            center: viewModel.coordinates,
-            latitudinalMeters: 1000,
-            longitudinalMeters: 1000
+            center: viewModel.city.coordinates,
+            latitudinalMeters: 10000,
+            longitudinalMeters: 10000
         )
         mapView.setRegion(region, animated: true)
     }

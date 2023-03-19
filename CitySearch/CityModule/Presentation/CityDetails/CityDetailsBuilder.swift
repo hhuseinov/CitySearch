@@ -10,9 +10,9 @@ import UIKit
 
 enum CityDetailsBuilder {
 
-    static func build(coordinates: CLLocationCoordinate2D) -> UIViewController {
+    static func build(city: City) -> UIViewController {
         let viewModel = CityDetailsViewModel(
-            coordinates: coordinates
+            city: city
         )
         return CityDetailsViewController.create(with: viewModel)
     }

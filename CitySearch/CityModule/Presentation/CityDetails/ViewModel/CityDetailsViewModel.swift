@@ -10,9 +10,9 @@ import CoreLocation
 
 final class CityDetailsViewModel: CityDetailsViewModelPresentation {
 
-    var coordinates: CLLocationCoordinate2D
+    var city: City
     
-    init(coordinates: CLLocationCoordinate2D) {
-        self.coordinates = coordinates
+    init(city: City) {
+        self.city = city
     }
 }

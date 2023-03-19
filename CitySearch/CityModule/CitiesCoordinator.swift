@@ -35,7 +35,7 @@ final class CityCoordinator: BaseCoordinator {
     }
 
     private func navigateToCityDetails(_ city: City) {
-        let vc = CityDetailsBuilder.build(coordinates: city.coordinates)
+        let vc = CityDetailsBuilder.build(city: city)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

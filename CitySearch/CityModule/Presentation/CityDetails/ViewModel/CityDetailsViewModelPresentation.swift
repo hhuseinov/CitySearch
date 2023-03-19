@@ -9,5 +9,5 @@ import Foundation
 import CoreLocation
 protocol CityDetailsViewModelPresentation: AnyObject {
     
-    var coordinates: CLLocationCoordinate2D { get }
+    var city: City { get }
 }

@@ -15,9 +15,13 @@ struct City: Comparable, Identifiable {
     }
 
     static func < (lhs: City, rhs: City) -> Bool {
-        lhs.name.compare(rhs.name) == .orderedAscending
+        if lhs.name == rhs.name {
+            return lhs.country < rhs.country
+        } else {
+            return lhs.name < rhs.name
+        }
     }
-
+    
     typealias Identifier = Int
     let id: Identifier
     let coordinates: CLLocationCoordinate2D

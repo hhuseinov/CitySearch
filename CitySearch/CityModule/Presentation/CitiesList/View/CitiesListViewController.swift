@@ -32,6 +32,7 @@ final class CitiesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cities"
         setupSearchController()
         viewModel.viewDidLoad()
         tableView.register(SubtitleTableViewCell.self, forCellReuseIdentifier: "Cell")

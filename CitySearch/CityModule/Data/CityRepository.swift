@@ -38,8 +38,8 @@ final class DefaultCityRepository: CityRepository {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let decoder = JSONDecoder()
             let cities = try decoder.decode([CityDTO].self, from: jsonData)
-                .sorted { $0.name < $1.name }
                 .map { $0.city }
+                .sorted()
             return .success(cities)
         } catch {
             return .failure(.decode)
