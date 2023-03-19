@@ -36,6 +36,11 @@
 		F580465229C75B1C006E3346 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465129C75B1C006E3346 /* DIContainer.swift */; };
 		F580465429C76159006E3346 /* CityDetailsViewModelPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465329C76159006E3346 /* CityDetailsViewModelPresentation.swift */; };
 		F580465729C775A3006E3346 /* SearchEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465629C775A3006E3346 /* SearchEngineTests.swift */; };
+		F580465A29C77EC1006E3346 /* CityRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580465929C77EC1006E3346 /* CityRepositoryTests.swift */; };
+		F580465F29C77F84006E3346 /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = F580465C29C77F84006E3346 /* correct.json */; };
+		F580466029C77F84006E3346 /* decodeError.json in Resources */ = {isa = PBXBuildFile; fileRef = F580465D29C77F84006E3346 /* decodeError.json */; };
+		F580466329C782E0006E3346 /* CitySearchUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580466229C782E0006E3346 /* CitySearchUseCaseTests.swift */; };
+		F580466729C787FB006E3346 /* CitiesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580466629C787FB006E3346 /* CitiesListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +94,11 @@
 		F580465129C75B1C006E3346 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		F580465329C76159006E3346 /* CityDetailsViewModelPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsViewModelPresentation.swift; sourceTree = "<group>"; };
 		F580465629C775A3006E3346 /* SearchEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngineTests.swift; sourceTree = "<group>"; };
+		F580465929C77EC1006E3346 /* CityRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepositoryTests.swift; sourceTree = "<group>"; };
+		F580465C29C77F84006E3346 /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
+		F580465D29C77F84006E3346 /* decodeError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = decodeError.json; sourceTree = "<group>"; };
+		F580466229C782E0006E3346 /* CitySearchUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchUseCaseTests.swift; sourceTree = "<group>"; };
+		F580466629C787FB006E3346 /* CitiesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				F580465629C775A3006E3346 /* SearchEngineTests.swift */,
+				F580466529C787D7006E3346 /* CitiesModule */,
 			);
 			path = CitySearchTests;
 			sourceTree = "<group>";
@@ -307,6 +318,42 @@
 			path = DataModels;
 			sourceTree = "<group>";
 		};
+		F580465829C77E92006E3346 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F580465929C77EC1006E3346 /* CityRepositoryTests.swift */,
+				F580465C29C77F84006E3346 /* correct.json */,
+				F580465D29C77F84006E3346 /* decodeError.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F580466129C782B7006E3346 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F580466229C782E0006E3346 /* CitySearchUseCaseTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F580466429C787C7006E3346 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F580466629C787FB006E3346 /* CitiesListViewModelTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F580466529C787D7006E3346 /* CitiesModule */ = {
+			isa = PBXGroup;
+			children = (
+				F580466429C787C7006E3346 /* Presentation */,
+				F580466129C782B7006E3346 /* Domain */,
+				F580465829C77E92006E3346 /* Data */,
+			);
+			path = CitiesModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,6 +473,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F580465F29C77F84006E3346 /* correct.json in Resources */,
+				F580466029C77F84006E3346 /* decodeError.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +521,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F580465A29C77EC1006E3346 /* CityRepositoryTests.swift in Sources */,
+				F580466729C787FB006E3346 /* CitiesListViewModelTests.swift in Sources */,
+				F580466329C782E0006E3346 /* CitySearchUseCaseTests.swift in Sources */,
 				F580465729C775A3006E3346 /* SearchEngineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

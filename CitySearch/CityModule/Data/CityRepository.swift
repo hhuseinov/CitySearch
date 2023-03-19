@@ -30,8 +30,14 @@ protocol CityRepository {
 
 final class DefaultCityRepository: CityRepository {
     
+    let path: String?
+
+    init(path: String?) {
+        self.path = path
+    }
+
     func getCitiesList() async -> Result<[City], RequestError> {
-        guard let path = Bundle.main.path(forResource: "cities", ofType: "json") else {
+        guard let path else {
             return .failure(.invalidFile)
         }
         do {
@@ -39,7 +45,6 @@ final class DefaultCityRepository: CityRepository {
             let decoder = JSONDecoder()
             let cities = try decoder.decode([CityDTO].self, from: jsonData)
                 .map { $0.city }
-                .sorted()
             return .success(cities)
         } catch {
             return .failure(.decode)

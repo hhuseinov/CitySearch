@@ -32,7 +32,12 @@ final class DefaultCitySearchUseCase {
 
 extension DefaultCitySearchUseCase: CitySearchUseCase {
     func getCitiesList() async -> Result<[City], RequestError> {
-        await cityRepository.getCitiesList()
+        switch await cityRepository.getCitiesList() {
+        case .success(let cities):
+            return .success(cities.sorted())
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
     func searchForCities(query: String, initialCollection: [City]) -> ArraySlice<City>? {

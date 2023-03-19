@@ -30,6 +30,6 @@ enum CitiesListBuilder {
     }
     
     private static func makeCityRepository() -> CityRepository {
-        DefaultCityRepository()
+        DefaultCityRepository(path: Bundle.main.path(forResource: "cities", ofType: "json"))
     }
 }

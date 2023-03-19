@@ -13,11 +13,11 @@ class DefaultSearchEngineTests: XCTestCase {
     
     var searchEngine: DefaultSearchEngine!
     let cities = [
-        City(id: 1, coordinates: CLLocationCoordinate2D(latitude: 51.5074, longitude: -0.1278), name: "London", country: "UK"),
-        City(id: 1, coordinates: CLLocationCoordinate2D(latitude: 40.445, longitude: -95.234978), name: "London", country: "US"),
-        City(id: 2, coordinates: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060), name: "New York", country: "US"),
-        City(id: 3, coordinates: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), name: "San Francisco", country: "US"),
-        City(id: 4, coordinates: CLLocationCoordinate2D(latitude: 35.6895, longitude: 139.6917), name: "Tokyo", country: "Japan")
+        City(id: 1, coordinates: .init(), name: "London", country: "UK"),
+        City(id: 1, coordinates: .init(), name: "London", country: "US"),
+        City(id: 2, coordinates: .init(), name: "New York", country: "US"),
+        City(id: 3, coordinates: .init(), name: "San Francisco", country: "US"),
+        City(id: 4, coordinates: .init(), name: "Tokyo", country: "Japan")
     ]
     
     override func setUp() {
@@ -30,38 +30,56 @@ class DefaultSearchEngineTests: XCTestCase {
         super.tearDown()
     }
     
-    func testBinarySearchWithNumbers() {
-        // Test a basic binary search with a sorted array
+    func testBinarySearchWithNumbersSortedArrayMissingResults() {
+        // given
         let sortedArray = [1, 3, 5, 7, 9]
-        let result = searchEngine.binarySearch(
-            array: sortedArray,
-            predicate: { $0 == 5 },
-            isBiggerThan: { $0 > 5 }
-        )
-        XCTAssertEqual(result, sortedArray[2...2])
         
-        // Test a binary search with an unsorted array
-        let unsortedArray = [9, 5, 1, 7, 3]
-        let sortedResult = searchEngine.binarySearch(
-            array: unsortedArray,
-            predicate: { $0 == 5 },
-            isBiggerThan: { $0 > 5 }
-        )
-        XCTAssertEqual(sortedResult, unsortedArray[1...1])
-        
-        // Test a binary search with an array that doesn't contain the target element
+        // when
         let missingResult = searchEngine.binarySearch(
             array: sortedArray,
             predicate: { $0 == 4 },
             isBiggerThan: { $0 > 4 }
         )
+        
+        //then
         XCTAssertNil(missingResult)
     }
     
+    func testBinarySearchWithNumbersSortedArray() {
+        // given
+        let sortedArray = [1, 3, 5, 7, 9]
+        
+        // when
+        let result = searchEngine.binarySearch(
+            array: sortedArray,
+            predicate: { $0 == 5 },
+            isBiggerThan: { $0 > 5 }
+        )
+        
+        //then
+        XCTAssertEqual(result, sortedArray[2...2])
+    }
+    
+    func testBinarySearchWithNumbersUnsortedArray() {
+        // given
+        let unsortedArray = [9, 5, 1, 7, 3]
+        
+        // when
+        let sortedResult = searchEngine.binarySearch(
+            array: unsortedArray,
+            predicate: { $0 == 5 },
+            isBiggerThan: { $0 > 5 }
+        )
+        
+        //then
+        XCTAssertEqual(sortedResult, unsortedArray[1...1])
+    }
+
     func testSearchForCitiesFirstLetter() {
-        // Search for cities with name starting with "n"
+        // when
         let result = searchEngine.searchForCities(query: "n", initialCollection: cities)
         
+        //then
         XCTAssertEqual(result?.count, 1)
         XCTAssertEqual(result?[0 + (result?.startIndex ?? 0)].id, 2)
         XCTAssertEqual(result?[0 + (result?.startIndex ?? 0)].name, "New York")
@@ -69,39 +87,53 @@ class DefaultSearchEngineTests: XCTestCase {
     }
     
     func testSearchForCitiesWithNonExistentQuery() {
-        // Search for cities with name starting with "x"
+        // when
         let result = searchEngine.searchForCities(query: "x", initialCollection: cities)
         
+        //then
         XCTAssertNil(result)
     }
     
     func testSearchForCitiesWithEmptyQuery() {
-        // Search for cities with empty query
+        // when
         let result = searchEngine.searchForCities(query: "", initialCollection: cities)
         
+        //then
         XCTAssertEqual(result?.count, cities.count)
     }
     
     func testSearchForCitiesPrefix() {
+        // when
         let result = searchEngine.searchForCities(query: "Lon", initialCollection: cities)
+        
+        //then
         XCTAssertEqual(result?.count, 2)
         XCTAssertEqual(result?.first?.name, "London")
     }
     
     func testSearchForCitiesPrefixLowercase() {
+        // when
         let result = searchEngine.searchForCities(query: "lon", initialCollection: cities)
+        
+        //then
         XCTAssertEqual(result?.count, 2)
         XCTAssertEqual(result?.first?.name, "London")
     }
     
     func testSearchForCitiesPrefixUppercase() {
+        // when
         let result = searchEngine.searchForCities(query: "LON", initialCollection: cities)
+        
+        //then
         XCTAssertEqual(result?.count, 2)
         XCTAssertEqual(result?.first?.name, "London")
     }
     
     func testSearchForCitiesSameCitiesDifferentCountriesOrder() {
+        // when
         let result = searchEngine.searchForCities(query: "LON", initialCollection: cities)
+        
+        //then
         XCTAssertEqual(result?.count, 2)
         XCTAssertEqual(result?.first?.name, "London")
         XCTAssertEqual(result?.first?.country, "UK")
@@ -110,7 +142,10 @@ class DefaultSearchEngineTests: XCTestCase {
     }
     
     func testSearchForCitiesNoMatch() {
+        // when
         let result = searchEngine.searchForCities(query: "Foo", initialCollection: cities)
+        
+        //then
         XCTAssertNil(result)
     }
 }
