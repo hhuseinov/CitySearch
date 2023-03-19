@@ -10,11 +10,12 @@ import Foundation
 final class CitiesListViewModel: CitiesListViewModelCoordination {
 
     weak var delegate: CitiesListViewModelDelegate?
+    private let citySearchUseCase: CitySearchUseCase
 
     // MARK: Lifecycle
 
-    init() {
-
+    init(citySearchUseCase: CitySearchUseCase) {
+        self.citySearchUseCase = citySearchUseCase
     }
 
     // MARK: Private methods

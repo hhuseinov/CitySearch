@@ -11,7 +11,7 @@ final class CityCoordinator {
 
     // MARK: Private Variables
 
-    private let navigationController: UINavigationController
+    private weak var navigationController: UINavigationController?
 
     // MARK: Lifecycle
 
@@ -28,7 +28,7 @@ final class CityCoordinator {
     private func navigateToCityList() {
         let (cityListViewController, cityListViewModel) = CitiesListBuilder.build()
         cityListViewModel.delegate = self
-        navigationController.viewControllers = [cityListViewController]
+        navigationController?.viewControllers = [cityListViewController]
     }
 
     private func navigateToCityDetails(_ city: AnyObject) {
