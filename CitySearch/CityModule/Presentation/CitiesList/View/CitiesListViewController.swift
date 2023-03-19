@@ -11,12 +11,14 @@ final class CitiesListViewController: UIViewController {
         
     private let searchController = UISearchController()
     private var viewModel: CitiesListViewModelPresentation!
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Life Cycle
 
     static func create(with viewModel: CitiesListViewModelPresentation) -> CitiesListViewController {
         let view = CitiesListViewController.fromStoryboard(.city)
         view.viewModel = viewModel
+        view.viewModel.presentationDelegate = view
         return view
     }
 
@@ -30,7 +32,9 @@ final class CitiesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSearch()
+        setupSearchController()
+        viewModel.viewDidLoad()
+        tableView.register(SubtitleTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 }
 
@@ -39,14 +43,14 @@ final class CitiesListViewController: UIViewController {
 extension CitiesListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.displayCities.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        let city = cities[indexPath.row]
-//        cell.textLabel?.text = "\(city.name), \(city.countryCode)"
-//        cell.detailTextLabel?.text = "Lat: \(city.latitude), Long: \(city.longitude)"
+        let city = viewModel.displayCities[indexPath.row]
+        cell.textLabel?.text = "\(city.name), \(city.country)"
+        cell.detailTextLabel?.text = "Lat: \(city.coordinates.latitude), Long: \(city.coordinates.longitude)"
         return cell
     }
 }
@@ -60,14 +64,24 @@ extension CitiesListViewController: UITableViewDelegate {
 }
 
 private extension CitiesListViewController {
-    func setupSearch() {
+    func setupSearchController() {
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
     }
 }
 
+// MARK: - UISearchResultsUpdating
+
 extension CitiesListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+}
+
+// MARK: - CitiesListViewModelPresentationDelegate
+
+extension CitiesListViewController: CitiesListViewModelPresentationDelegate {
+    func citiesUpdated() {
+        tableView.reloadData()
     }
 }

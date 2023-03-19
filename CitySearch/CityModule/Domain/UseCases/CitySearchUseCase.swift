@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CitySearchUseCase {
-    func getCitiesList() async -> [City]
+    func getCitiesList() async -> Result<[City], RequestError>
     func searchForCities(query: String, initialCollection: [City]) -> ArraySlice<City>
 }
 
@@ -22,8 +22,8 @@ final class DefaultCitySearchUseCase {
 }
 
 extension DefaultCitySearchUseCase: CitySearchUseCase {
-    func getCitiesList() async -> [City] {
-        return []
+    func getCitiesList() async -> Result<[City], RequestError> {
+        await cityRepository.getCitiesList()
     }
     
     func searchForCities(query: String, initialCollection: [City]) -> ArraySlice<City> {

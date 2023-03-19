@@ -27,7 +27,7 @@ final class CityCoordinator {
 
     private func navigateToCityList() {
         let (cityListViewController, cityListViewModel) = CitiesListBuilder.build()
-        cityListViewModel.delegate = self
+        cityListViewModel.coordinationDelegate = self
         navigationController?.viewControllers = [cityListViewController]
     }
 
@@ -38,7 +38,7 @@ final class CityCoordinator {
 
 // MARK: -
 
-extension CityCoordinator: CitiesListViewModelDelegate {
+extension CityCoordinator: CitiesListViewModelCoordinationDelegate {
     func showCityDetails(_ city: AnyObject) {
         navigateToCityDetails(city)
     }
